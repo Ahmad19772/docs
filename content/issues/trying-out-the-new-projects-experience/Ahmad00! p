@@ -62,3 +62,102 @@ Projects (beta) is a new, customizable version of projects. For more information
 ## Sharing feedback
 
 You can share your feedback about projects (beta) with {% data variables.product.company_short %}. To join the conversation, see [the feedback discussion](https://github.com/github/feedback/discussions/categories/issues-feedback).
+
+
+
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://name.glitch.me/`); //
+}, 280000);
+
+//كل البكجات
+const Discord = require('discord.js');
+const converter = require('number-to-words');
+const moment = require('moment');
+const dateformat = require('dateformat');
+const ms = require('parse-ms')
+const client = new Discord.Client({ disableEveryone: true});
+const bot = new Discord.Client();
+const fs = require('fs');
+const request = require('request');
+const r1 = require('snekfetch');
+const Canvas = require("canvas");
+const jimp = require('jimp')
+const weather = require('weather-js');
+const pretty = require("pretty-ms");
+client.on('warn', console.warn);
+client.on('error', console.error);
+
+const CHANNELID = '911940929642975262'; 
+
+
+const prefix = ":"; 
+
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+client.on("ready", () => {
+  client.user.setStatus("idle");
+});
+client.on('ready', () => {
+    client.user.setActivity(`Type ${prefix}MAFIA WASR`,{ type: 'WATCHING' });
+})
+
+
+
+
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+
+
+let cmds = {
+  play: { cmd: 'play', a: ['b.p', ''] },
+  skip: { cmd: 'skip', a: ['s', ''] },
+  stop: { cmd: 'stop', a: [''] },
+  pause: { cmd: 'pause', a: [''] },
+  resume: { cmd: 'resume', a: ['r',''] },
+  volume: { cmd: 'volume', a: ['vol',''] },
+
+    }
+  }
+});
+
+
+
+
+
+client.on('message', message => {
+  var helplist = `**:notes:  The list of commands ** 
+
+\`Play\` : Play the song, add it to the list, or complete the song [p] 
+\`Pause\` : Pause the song 
+\`Resume\` : Complete the song
+\`stop\` : To stop the song and exit the bot from the room
+\`forceskip\` : To skip the song directly
+\`Queue\` : Show Queue
+\`skipto\` : To skip the song to the next song in the next music queue
+\`Skip\` : Skip to the next song
+\`Volume\` : changing the voice [vol] 
+\`Nowplaying\` : Show what's playing now [np] 
+\`repeat\` : Repeat the song
+\`Leave\` : Exit the audio room
+
+
+`
+  if(message.content === prefix + 'help') {
+            message.delete(1000)
+    let e = '\`Special orders were sent\`'
+	  message.reply(e).then(m => m.delete(10000))
+	  message.author.send(helplist).catch(error => message.reply('** I could not send the orders to you, please open yours :negative_squared_cross_mark:**'))
+}
+});
+
+
+
+client.login('OTI5NDExMjg0NDk0MDU3NDgy.Ydm7tQ.aviJPQY13eYfylgkwEqPUYfM8sU');
